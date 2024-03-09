@@ -1,0 +1,69 @@
+.categoria {
+    background-color: #C0C0C0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    margin: 10px 0;
+    padding: 10px;
+    
+}
+
+.indicados {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+    padding: 2px 4px;
+    border-radius: 15px;
+}
+
+.btn-cat {
+    color: white;
+    background-color: green;
+    width: 50%;
+    margin-bottom: 20px;
+}
+
+.btn-cat2 {
+    width: 15%;
+    padding: 10px 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    background: #000;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+    appearance: button;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.lista-suspensa {
+    margin: 24px 0;
+}
+
+.lista-suspensa label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 24px;
+}
+
+.lista-suspensa select {
+    background-color: #FFF;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.06);
+    width: 100%;
+    border: none;
+    font-size: 24px;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+.div1 {
+    display: flex; 
+    justify-content:center;
+    padding: 0px 0px 20px 0px;
+  }
