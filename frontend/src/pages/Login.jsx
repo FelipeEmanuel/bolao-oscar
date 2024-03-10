@@ -67,7 +67,7 @@ function Login() {
                 style={{
                     width: '40em',
                     height: '20em',
-                    padding: '15px'
+                    padding: '15px',
                 }}
                 >
             </img>

@@ -4,9 +4,9 @@ export function ordenarRanking( a, b ) {
       return -1;
     }
 
-    if ( a.acertos > b.acertos ) {
+    else if ( a.acertos > b.acertos ) {
       return 1;
-    }
+    } 
 
     return 0;
 }
