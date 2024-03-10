@@ -57,7 +57,7 @@ function Ranking() {
 
     return (
         <>
-            <section className='container'>
+            {users?.length > 0 && <section className='container'>
                 <Header />
                 <section className='ranking'>
                     <div className='ranking-cabecalho'>
@@ -96,8 +96,11 @@ function Ranking() {
                     }
 
                 </section>*/}
-            </section>
-        
+            </section>}
+            {users?.length === 0 && <section className='container'>
+                <Header />
+                <h1>Não há usuários cadastrados.</h1>
+            </section>}
         </>
     )
 }
