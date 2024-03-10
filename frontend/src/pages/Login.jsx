@@ -102,13 +102,12 @@ function Login() {
 
             <div className='form-group'>
                 <button type='submit' className='btn btn-block'>
-                Entrar
+                  Entrar
                 </button>
-                <button className='btn btn-block'>
-                    <Link to='/cadastrar'>
-                        Cadastre-se
-                    </Link>
-                </button>
+                <Link to='/cadastrar' className='btn btn-block'>
+                  Cadastre-se
+                </Link>
+                
             </div>
             </form>
         </section>

@@ -3,6 +3,7 @@ import {useNavigate} from 'react-router-dom'
 import Header from '../components/Header'
 import { get } from '../api'
 import ListaCategorias from '../components/ListaCategorias'
+import Spinner from '../components/Spinner'
 //import Spinner from '../components/Spinner/Spinner.jsx'
 
 function Categorias() {
@@ -11,7 +12,7 @@ function Categorias() {
   const navigate = useNavigate()
   const [data, setData] = useState(null)
   const [error, setError] = useState(null)
-  const [isFetching, setIsFetching] = useState(false)
+  const [isFetching, setIsFetching] = useState(true)
   
   useEffect(() => {
     if(!user) {
@@ -24,11 +25,10 @@ function Categorias() {
     get("api/categoria", setData, setError, setIsFetching)
   }, [data])
 
-  /*if(isFetching) {
+  if(isFetching) {
     return <Spinner/>
-  } */
+  } 
 
-  console.log(data)
   return (
     <>
         <section className='container'>

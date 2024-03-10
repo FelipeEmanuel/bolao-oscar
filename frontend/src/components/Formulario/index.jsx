@@ -9,7 +9,6 @@ function Formulario({categoria, palpitou}) {
     const [palpite, setPalpite] = useState(categoria?.palpite)
     const [palpiteRealizado, setPalpiteRealizado] = useState(false)
     
-    console.log(categoria)
     useEffect (() => {
         if(categoria?.palpite) {
             setPalpiteRealizado(true)

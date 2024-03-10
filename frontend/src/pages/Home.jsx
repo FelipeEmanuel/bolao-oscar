@@ -3,6 +3,7 @@ import {useNavigate} from 'react-router-dom'
 import Header from '../components/Header'
 import Formulario from '../components/Formulario'
 import { get } from '../api'
+import Spinner from '../components/Spinner'
 //import Spinner from '../components/Spinner/Spinner.jsx'
 
 function Home() {
@@ -11,7 +12,9 @@ function Home() {
   const navigate = useNavigate()
   const [data, setData] = useState(null)
   const [error, setError] = useState(null)
-  const [isFetching, setIsFetching] = useState(false)
+  const [isFetching, setIsFetching] = useState(true)
+  const [isFetchingUser, setIsFetchingUser] = useState(true)
+  const [errorUser, setErrorUser] = useState(false)
   const [palpitou, setPalpitou] = useState(null)
   const [categorias, setCategorias] = useState(null)
   const [qtdPalpitou, setQtdPalpitou] = useState(0);
@@ -30,8 +33,9 @@ function Home() {
   }, [palpitou])
 
   useEffect(() => {
-    get('/api/users/me', setUsuario, setError, setIsFetching)
-  })
+    
+    get('/api/users/me', setUsuario, setErrorUser, setIsFetchingUser)
+  }, [])
 
   useEffect(() => {
     if(data) {
@@ -76,9 +80,9 @@ function Home() {
     }
   }, [data])
 
-  /*if(isFetching) {
+  if(isFetching || isFetchingUser) {
     return <Spinner/>
-  } */
+  } 
 
   return (
     <>

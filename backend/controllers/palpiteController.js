@@ -1,6 +1,7 @@
 const asyncHandler = require('express-async-handler')
 const Palpite = require('../models/palpiteModel')
 const Categoria = require('../models/categoriaModel')
+const User = require('../models/userModel')
 
 const setPalpite = asyncHandler(async (req, res) => {
 
@@ -33,7 +34,39 @@ const getUserPalpites = asyncHandler(async (req, res) => {
     res.status(200).json({userPalpites, categorias})
 })
 
+const getAllUsersPalpites = asyncHandler(async (req, res) => {
+    const users = await User.aggregate( [
+        {
+            $match:{
+                role: "user",
+            }
+        },
+        {
+            $lookup:
+            {
+                from: "palpites",
+                localField: "_id",
+                foreignField: "user",
+                as: "palpites"
+            }
+        },
+        { 
+            $project : { 
+                name: 1, 
+                palpites : {
+                    palpite: 1, 
+                    categoria: 1  
+                }, 
+            } 
+        }
+    ]);
+
+    const categorias = await Categoria.find()
+
+    res.status(200).json({users, categorias})
+})
+
 
 module.exports = {
-    setPalpite, getUserPalpites
+    setPalpite, getUserPalpites, getAllUsersPalpites
 }

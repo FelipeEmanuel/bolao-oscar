@@ -21,8 +21,7 @@ function ListaCategorias({categoria}) {
 
     const editarVencedor = async (event) => {
 
-        event.preventDefault();
-        
+        event.preventDefault();       
         const body = {
             vencedor 
         }
@@ -58,18 +57,18 @@ function ListaCategorias({categoria}) {
             </div>
 
             <ModalPopup trigger={buttonPopup} setTrigger={setButtonPopup}>
-            <form className='formulario' onSubmit={(event) => editarVencedor(event.target.value)}>
+            <form className='formulario' onSubmit={(event) => editarVencedor(event)}>
                 <h3>Escolha o vencedor dessa categoria!</h3>
                 <div className='lista-suspensa'>
                     <label>{categoria.nome}</label>
-                    <select required={true} value={categoria} onChange={evento => setVencedor(evento.target.value)} >
+                    <select required={true} name='x' value={vencedor} onChange={evento => organizaValor(evento.target.value)} >
                         {categoria?.indicados?.map((indicado, i) => {
                             return <option key={i} value={indicado}>{indicado}</option>
                         })}    
                     </select> 
                 </div>
                 <div className='div1'>
-                    <button className='btn btn-cat'>Votar</button>
+                    <button className='btn btn-cat'>Escolher</button>
                 </div>
             </form>
             </ModalPopup>
